@@ -3136,5 +3136,32 @@
                 .querySelectorAll(".reveal")
                 .forEach((el) => observer.observe(el));
         </script>
+
+        <script>
+            // Auto Update Year - Kashvi Technologies
+            function autoUpdateYear() {
+                const currentYear = new Date().getFullYear().toString();
+
+                // Update Footer Copyright Year
+                const footerCopy = document.querySelector(".footer-copy");
+                if (footerCopy) {
+                    footerCopy.textContent = footerCopy.textContent.replace(
+                        /\d{4}/,
+                        currentYear,
+                    );
+                }
+
+                // Update any year mentioned in Hero section (in case you add it later)
+                const heroYears = document.querySelectorAll(
+                    "#hero .year, #hero .current-year, .hero-year",
+                );
+                heroYears.forEach((el) => {
+                    el.textContent = currentYear;
+                });
+            }
+
+            // Execute when DOM is fully loaded
+            document.addEventListener("DOMContentLoaded", autoUpdateYear);
+        </script>
     </body>
 </html>
